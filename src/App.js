@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"; // Import React
+import { BrowserRouter as Router } from "react-router-dom";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import WatchPage from "./components/WatchPage";
+import SearchPage from "./components/SearchPage";
+import VideosByCategory from "./components/VideosByCategory";
+import VideoContainer from "./components/VideoContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Body />}>
+            <Route index element={<VideoContainer />}></Route>
+            <Route path="WatchPage/:id" element={<WatchPage />}></Route>
+            <Route path="Search/:query" element={<SearchPage />}></Route>
+            <Route
+              path="VideoCategory/:category"
+              element={<VideosByCategory />}
+            ></Route>
+          </Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

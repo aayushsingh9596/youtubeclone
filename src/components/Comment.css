@@ -1,0 +1,14 @@
+.comment{
+    margin-top: 0.5vh;
+    width: 50vw;
+    margin-left: 10px;
+    padding: 5px;
+}
+.comment>img{
+    width: 1.5vw;
+    margin-left: 0.5vw;
+}
+.replies{
+    border-left: 1px dotted black;
+    margin-left: 25px;
+}
